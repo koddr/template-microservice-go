@@ -46,6 +46,5 @@ func (a *Application) BasicAuthMiddleware(h httprouter.Handle) httprouter.Handle
 		w.Header().Set("WWW-Authenticate", `Basic realm="restricted", charset="UTF-8"`)
 		a.Logger.Error(http.StatusText(http.StatusUnauthorized), "details", http.StatusUnauthorized)
 		http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
-		return
 	}
 }
